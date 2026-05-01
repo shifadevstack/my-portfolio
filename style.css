@@ -1,0 +1,198 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #121212;
+    color: #f5f5f5;
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Slides */
+.slide {
+    position: absolute;
+    width: 60%;
+    height: 70%;
+    background: #1e1e1e;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+
+    transition: all 0.6s ease, filter 0.6s ease;
+    opacity: 0;
+}
+
+/* Active */
+.slide.active {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 3;
+
+    filter: blur(0);
+    box-shadow: 0 15px 40px rgba(212,175,55,0.2);
+}
+
+/* Side slides */
+.slide.prev {
+    transform: translateX(-300px) scale(0.7);
+    opacity: 0.5;
+    filter: blur(4px) brightness(0.7);
+}
+
+.slide.next {
+    transform: translateX(300px) scale(0.7);
+    opacity: 0.5;
+    filter: blur(4px) brightness(0.7);
+}
+
+/* Box */
+.box {
+    background: rgba(30,30,30,0.8);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(212,175,55,0.3);
+}
+
+/* Typing */
+.typing {
+    font-size: 42px;
+    border-right: 3px solid #d4af37;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 3s steps(22) forwards, blink 0.7s infinite;
+}
+
+@keyframes typing {
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Skills */
+.skills {
+    display: flex;
+    gap: 40px;
+}
+
+/* Card */
+.card {
+    width: 150px;
+    height: 150px;
+    perspective: 1000px;
+}
+
+/* Inner */
+.inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card:hover .inner {
+    transform: rotateY(180deg);
+}
+
+/* Front */
+.front {
+    background: linear-gradient(135deg, #d4af37, #8c6b1f);
+    color: #121212;
+}
+
+/* Back */
+.back {
+    background: #2a2a2a;
+    color: #f5f5f5;
+    transform: rotateY(180deg);
+}
+
+/* Card sides */
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    backface-visibility: hidden;
+    text-align: center;
+}
+
+/* Icons */
+.front i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+}
+
+.card:hover i {
+    transform: scale(1.3);
+    text-shadow: 0 0 15px rgba(212,175,55,0.8);
+}
+
+/* Projects */
+.project-card {
+    width: 280px;
+    padding: 20px;
+    background: #1e1e1e;
+    border-radius: 12px;
+    text-align: center;
+
+    border: 1px solid rgba(212,175,55,0.3);
+}
+
+.project-card button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #d4af37;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.project-card button:hover {
+    background: #b8962e;
+}
+
+/* Navigation */
+.nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(212,175,55,0.8);
+    color: #121212;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.nav:hover {
+    background: #d4af37;
+}

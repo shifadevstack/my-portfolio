@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shifa Portfolio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="carousel">
+
+    <!-- Slide 1 -->
+    <div class="slide active">
+        <div class="box">
+            <h1 class="typing">Hi, I'm Shifa Anum</h1>
+            <p>CSE Student | Front-End Developer</p>
+        </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+        <h2>My Skills</h2>
+
+        <div class="skills">
+
+            <div class="card">
+                <div class="inner">
+                    <div class="front">
+                        <i class="fab fa-html5"></i>
+                        <p>HTML</p>
+                    </div>
+                    <div class="back">Structure of web pages</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="inner">
+                    <div class="front">
+                        <i class="fab fa-css3-alt"></i>
+                        <p>CSS</p>
+                    </div>
+                    <div class="back">Styling & animations</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="inner">
+                    <div class="front">
+                        <i class="fab fa-java"></i>
+                        <p>Java</p>
+                    </div>
+                    <div class="back">Basic programming</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+        <h2>My Projects</h2>
+
+        <div class="projects">
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>This portfolio with animations and carousel UI.</p>
+                <button onclick="openProject()">View Project</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<button class="nav prev" onclick="prevSlide()">&#10094;</button>
+<button class="nav next" onclick="nextSlide()">&#10095;</button>
+
+<script>
+const slides = document.querySelectorAll(".slide");
+let current = 0;
+
+function updateSlides() {
+    slides.forEach(slide => {
+        slide.classList.remove("active", "prev", "next");
+    });
+
+    slides[current].classList.add("active");
+
+    let prev = (current - 1 + slides.length) % slides.length;
+    let next = (current + 1) % slides.length;
+
+    slides[prev].classList.add("prev");
+    slides[next].classList.add("next");
+}
+
+function nextSlide() {
+    current = (current + 1) % slides.length;
+    updateSlides();
+}
+
+function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    updateSlides();
+}
+
+setInterval(nextSlide, 4000);
+
+function openProject() {
+    alert("Project link coming soon!");
+}
+
+updateSlides();
+</script>
+
+</body>
+</html>
